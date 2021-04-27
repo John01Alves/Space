@@ -1,10 +1,8 @@
 import pygame
 import os
 from pygame.locals import *
-from sys import exit
 
 menu = 1
-game_loop = True
 
 os.environ['SDL_VIDEO_CENTERED'] = '1'
 pygame.init()
@@ -21,10 +19,12 @@ def window():
             pygame.quit()
 
         if event.type == KEYDOWN:
-            if event.key == K_s or event.key == K_DOWN:
+            if event.key == K_DOWN:
                 menu += 1
-            elif event.key == K_w or event.key == K_UP:
+            elif event.key == K_UP:
                 menu -= 1
+            elif event.key == K_KP_ENTER:
+                menu += 10
 
 
 def select():
@@ -40,6 +40,10 @@ def select():
         font = pygame.font.SysFont('arial', 20, False, False)
         load_game = font.render(' Load Game', True, (80, 80, 80))
         screen.blit(load_game, ((800 / 2) - 50, (400 / 2) + 22))
+
+        font = pygame.font.SysFont('arial', 20, False, False)
+        exit_game = font.render(' Quit', True, (80, 80, 80))
+        screen.blit(exit_game, ((800 / 2) - 15, (400 / 2) + 44))
     elif menu == 2:
         screen.fill((0, 0, 0))
 
@@ -51,13 +55,53 @@ def select():
         load_game = font.render('> Load Game', True, (80, 80, 80))
         screen.blit(load_game, ((800 / 2) - 50, (400 / 2) + 22))
 
-    if menu == 6:
-        menu = 5
+        font = pygame.font.SysFont('arial', 20, False, False)
+        exit_game = font.render(' Quit', True, (80, 80, 80))
+        screen.blit(exit_game, ((800 / 2) - 15, (400 / 2) + 44))
+    elif menu == 3:
+        screen.fill((0, 0, 0))
+
+        font = pygame.font.SysFont('arial', 20, False, False)
+        new_game = font.render(' New Game', True, (80, 80, 80))
+        screen.blit(new_game, ((800 / 2) - 50, (400 / 2)))
+
+        font = pygame.font.SysFont('arial', 20, False, False)
+        load_game = font.render(' Load Game', True, (80, 80, 80))
+        screen.blit(load_game, ((800 / 2) - 50, (400 / 2) + 22))
+
+        font = pygame.font.SysFont('arial', 20, False, False)
+        exit_game = font.render('> Quit', True, (80, 80, 80))
+        screen.blit(exit_game, ((800 / 2) - 15, (400 / 2) + 44))
+
+    if menu == 4:
+        menu = 3
     elif menu == 0:
+        menu = 1
+    elif menu == 11:
+        menu += 100
+    elif menu == 13:
+        pygame.quit()
+    elif menu == 12:
+        menu = 2
+
+    elif menu == 111:
+        screen.fill((0, 0, 0))
+
+        font = pygame.font.SysFont('arial', 20, False, False)
+        msn = font.render('NEW GAME COMING SOON!', True, (80, 80, 80))
+        back = font.render('> Back', True, (80, 80, 80))
+        screen.blit(msn, ((800 / 2) - 150, (400 / 2)))
+        screen.blit(back, ((800 / 2) - 50, (400 / 2) + 32))
+
+    elif menu == 110:
+        menu = 100
+    elif menu == 112:
+        menu = 100
+    elif menu == 121:
         menu = 1
 
 
-while game_loop:
+while True:
     clock.tick(30)
     window()
     select()
