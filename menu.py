@@ -1,7 +1,7 @@
 import pygame
 import os
 from pygame.locals import *
-from Game import mission
+import mission
 
 menu = 1
 
@@ -9,11 +9,13 @@ os.environ['SDL_VIDEO_CENTERED'] = '1'
 pygame.init()
 screen = pygame.display.set_mode([840, 480])
 key_enter = False
+clock = pygame.time.Clock()
 
 
 def window():
     global menu, key_enter
 
+    clock.tick(60)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -107,4 +109,6 @@ def select():
         menu += 100
 
     if menu == 221:
-        mission.Jogo()
+        screen.fill((0, 0, 0))
+        while True:
+            mission.jogo()
