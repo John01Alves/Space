@@ -1,21 +1,20 @@
 import pygame
-from player import Player
+from Game import player
 
 
-def missi():
-    pygame.init()
-    window = pygame.display.set_mode([840, 480])
-    clock = pygame.time.Clock()
+class Jo(pygame, player):
+    def jogo(self):
+        pygame.init()
+        self.window = pygame.display.set_mode([840, 480])
+        self.clock = pygame.time.Clock()
 
-    jogadorGrupo = pygame.sprite.Group()
+        self.jogadorGrupo = pygame.sprite.Group()
 
-    jogador = Player(jogadorGrupo)
-
-    while True:
-        clock.tick(60)
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-        jogadorGrupo.update()
-        jogadorGrupo.draw(window)
-        pygame.display.update()
+        while True:
+            self.clock.tick(60)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+            self.jogadorGrupo.update()
+            self.jogadorGrupo.draw(self.window)
+            self.pygame.display.update()
