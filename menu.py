@@ -77,6 +77,7 @@ def select():
         menu += 100
     elif menu == 13:
         pygame.quit()
+        exit()
     elif menu == 12:
         menu = 2
 

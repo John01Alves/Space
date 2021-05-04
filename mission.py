@@ -17,6 +17,7 @@ def jogo():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 exit()
-        jogadorGrupo.update()
+        window.fill((0, 0, 0))
         jogadorGrupo.draw(window)
+        jogadorGrupo.update()
         pygame.display.update()
