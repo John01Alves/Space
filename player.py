@@ -5,8 +5,8 @@ class Player(pygame.sprite.Sprite):
     def __init__(self, *groups):
         super().__init__(*groups)
         self.image = pygame.image.load('utilitie/images/ship.png')
-        self.image = pygame.transform.scale(self.image, [100, 100])
-        self.rect = pygame.Rect(50, 50, 100, 100)
+        self.image = pygame.transform.scale(self.image, [64, 32])
+        self.rect = pygame.Rect(64, 64, 50, 50)
         self.speed = 0
 
     def update(self, *args):

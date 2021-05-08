@@ -1,7 +1,7 @@
 import pygame
-import menu
+from files.menu import window, select
 
 while True:
-    menu.window()
-    menu.select()
+    window()
+    select()
     pygame.display.update()
