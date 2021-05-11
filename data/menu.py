@@ -1,7 +1,7 @@
 import pygame
 import os
 from pygame.locals import *
-from files.levels.mission import jogo
+from data.levels.mission import jogo
 
 menu = 1
 
