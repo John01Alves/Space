@@ -6,8 +6,10 @@ class Enemy(pygame.sprite.Sprite):
     def __init__(self, *groups):
         super().__init__(*groups)
         self.image = pygame.image.load('utilitie/images/meteoro.png')
-        self.image = pygame.transform.scale(self.image, [84, 84])
-        self.rect = pygame.Rect(50, 50, 100, 100)
+        lar = random.randint(40, 84)
+        con = random.randint(40, 84)
+        self.image = pygame.transform.scale(self.image, [lar, con])
+        self.rect = self.image.get_rect()
         self.speed = 1 + random.random() * 2
 
         self.rect.x = 840 + random.randint(1, 400)

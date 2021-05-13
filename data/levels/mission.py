@@ -3,6 +3,7 @@ import random
 from player import Player
 from shot import Shot
 from enemies import Enemy
+from data.secondary_menu import windo, selec
 
 
 def jogo():
@@ -38,7 +39,9 @@ def jogo():
         colisao = pygame.sprite.spritecollide(jogador, inimigoGrupo, False)
         morte = pygame.sprite.groupcollide(tiroGrupo, inimigoGrupo, True, True)
         if colisao:
-            pygame.quit()
-            exit()
+            while True:
+                windo()
+                selec()
+                pygame.display.update()
         jogadorGrupo.update()
         pygame.display.update()
