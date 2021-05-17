@@ -35,11 +35,11 @@ def selec():
         screen.fill((0, 0, 0))
         font = pygame.font.SysFont('arial', 20, False, False)
 
-        new_game = font.render('MISSION FAILED!', True, (80, 80, 80))
-        screen.blit(new_game, ((800 / 2) - 50, (400 / 2)))
+        new_game = font.render('MISSION FAILED!', True, (255, 0, 0))
+        screen.blit(new_game, ((800 / 2) - 66, (400 / 2)))
 
-        exit_game = font.render('  > Quit <', True, (80, 80, 80))
-        screen.blit(exit_game, ((800 / 2) - 15, (400 / 2) + 44))
+        exit_game = font.render('Quit', True, (0, 155, 220))
+        screen.blit(exit_game, ((800 / 2) + 2, (400 / 2) + 44))
 
     if menu == 100:
         menu = 99

@@ -36,38 +36,38 @@ def select():
         screen.fill((0, 0, 0))
         font = pygame.font.SysFont('arial', 20, False, False)
 
-        new_game = font.render('> New Game <', True, (80, 80, 80))
-        screen.blit(new_game, ((800 / 2) - 50, (400 / 2)))
+        new_game = font.render('New Game', True, (0, 155, 220))
+        screen.blit(new_game, ((800 / 2) - 22, (400 / 2)))
 
-        load_game = font.render('Load Game', True, (80, 80, 80))
-        screen.blit(load_game, ((800 / 2) - 50, (400 / 2) + 22))
+        load_game = font.render('Load Game', True, (255, 255, 255))
+        screen.blit(load_game, ((800 / 2) - 24, (400 / 2) + 22))
 
-        exit_game = font.render('Quit', True, (80, 80, 80))
-        screen.blit(exit_game, ((800 / 2) - 15, (400 / 2) + 44))
+        exit_game = font.render('Quit', True, (255, 255, 255))
+        screen.blit(exit_game, ((800 / 2) + 2, (400 / 2) + 44))
     elif menu == 2:
         screen.fill((0, 0, 0))
         font = pygame.font.SysFont('arial', 20, False, False)
 
-        new_game = font.render('New Game', True, (80, 80, 80))
-        screen.blit(new_game, ((800 / 2) - 50, (400 / 2)))
+        new_game = font.render('New Game', True, (255, 255, 255))
+        screen.blit(new_game, ((800 / 2) - 22, (400 / 2)))
 
-        load_game = font.render('> Load Game <', True, (80, 80, 80))
-        screen.blit(load_game, ((800 / 2) - 50, (400 / 2) + 22))
+        load_game = font.render('Load Game', True, (0, 155, 220))
+        screen.blit(load_game, ((800 / 2) - 24, (400 / 2) + 22))
 
-        exit_game = font.render('Quit', True, (80, 80, 80))
-        screen.blit(exit_game, ((800 / 2) - 15, (400 / 2) + 44))
+        exit_game = font.render('Quit', True, (255, 255, 255))
+        screen.blit(exit_game, ((800 / 2) + 2, (400 / 2) + 44))
     elif menu == 3:
         screen.fill((0, 0, 0))
         font = pygame.font.SysFont('arial', 20, False, False)
 
-        new_game = font.render('New Game', True, (80, 80, 80))
-        screen.blit(new_game, ((800 / 2) - 50, (400 / 2)))
+        new_game = font.render('New Game', True, (255, 255, 255))
+        screen.blit(new_game, ((800 / 2) - 22, (400 / 2)))
 
-        load_game = font.render('Load Game', True, (80, 80, 80))
-        screen.blit(load_game, ((800 / 2) - 50, (400 / 2) + 22))
+        load_game = font.render('Load Game', True, (255, 255, 255))
+        screen.blit(load_game, ((800 / 2) - 24, (400 / 2) + 22))
 
-        exit_game = font.render('> Quit <', True, (80, 80, 80))
-        screen.blit(exit_game, ((800 / 2) - 15, (400 / 2) + 44))
+        exit_game = font.render('Quit', True, (0, 155, 220))
+        screen.blit(exit_game, ((800 / 2) + 2, (400 / 2) + 44))
 
     if menu == 4:
         menu = 3
@@ -85,20 +85,20 @@ def select():
         screen.fill((0, 0, 0))
         font = pygame.font.SysFont('arial', 20, False, False)
 
-        msn = font.render('> mission 01 <', True, (80, 80, 80))
-        screen.blit(msn, ((800 / 2) - 80, (400 / 2)))
+        msn = font.render('mission 01', True, (0, 155, 220))
+        screen.blit(msn, ((800 / 2) - 22, (400 / 2)))
 
-        back = font.render('Back', True, (80, 80, 80))
-        screen.blit(back, ((800 / 2) - 50, (400 / 2) + 32))
+        back = font.render('Back', True, (255, 255, 255))
+        screen.blit(back, ((800 / 2) - 1, (400 / 2) + 44))
     elif menu == 112:
         screen.fill((0, 0, 0))
         font = pygame.font.SysFont('arial', 20, False, False)
 
-        msn = font.render('mission 01', True, (80, 80, 80))
-        screen.blit(msn, ((800 / 2) - 70, (400 / 2)))
+        msn = font.render('mission 01', True, (255, 255, 255))
+        screen.blit(msn, ((800 / 2) - 22, (400 / 2)))
 
-        back = font.render('> Back <', True, (80, 80, 80))
-        screen.blit(back, ((800 / 2) - 60, (400 / 2) + 32))
+        back = font.render('Back', True, (0, 155, 220))
+        screen.blit(back, ((800 / 2) - 1, (400 / 2) + 44))
 
     if menu == 110:
         menu = 111
