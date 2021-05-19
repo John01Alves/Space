@@ -1,7 +1,7 @@
 import pygame
 import os
 from pygame.locals import *
-from data.levels.mission import jogo
+from data.levels.mission import game
 
 menu = 1
 
@@ -19,6 +19,7 @@ def window():
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
+            exit()
 
         if event.type == KEYDOWN:
             if event.key == K_DOWN:
@@ -112,4 +113,4 @@ def select():
     if menu == 221:
         screen.fill((0, 0, 0))
         while True:
-            jogo()
+            game()

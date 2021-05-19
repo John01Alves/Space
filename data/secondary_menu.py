@@ -11,7 +11,7 @@ key_enter = False
 clock = pygame.time.Clock()
 
 
-def windo():
+def Window():
     global menu, key_enter
 
     clock.tick(60)

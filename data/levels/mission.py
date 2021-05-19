@@ -1,21 +1,21 @@
 import pygame
-import random
+from random import random
 from player import Player
 from shot import Shot
 from enemies import Enemy
-from data.secondary_menu import windo, selec
+from data.secondary_menu import Window, selec
 
 
-def jogo():
+def game():
     pygame.init()
     window = pygame.display.set_mode([840, 480])
     clock = pygame.time.Clock()
 
-    jogadorGrupo = pygame.sprite.Group()
-    tiroGrupo = pygame.sprite.Group()
-    inimigoGrupo = pygame.sprite.Group()
+    player_group = pygame.sprite.Group()
+    shot_group = pygame.sprite.Group()
+    enemy_group = pygame.sprite.Group()
 
-    jogador = Player(jogadorGrupo)
+    player = Player(player_group)
 
     timer = 0
 
@@ -27,21 +27,21 @@ def jogo():
                 exit()
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
-                    novodisparo = Shot(jogadorGrupo, tiroGrupo)
-                    novodisparo.rect.center = jogador.rect.center
+                    new_shot = Shot(player_group, shot_group)
+                    new_shot.rect.center = player.rect.center
         window.fill([0, 0, 0])
-        jogadorGrupo.draw(window)
+        player_group.draw(window)
         timer += 1
         if timer > 30:
             timer = 0
-            if random.random() < 0.3:
-                novoinimigo = Enemy(jogadorGrupo, inimigoGrupo)
-        colisao = pygame.sprite.spritecollide(jogador, inimigoGrupo, False)
-        morte = pygame.sprite.groupcollide(tiroGrupo, inimigoGrupo, True, True)
-        if colisao:
+            if random() < 0.3:
+                new_enemy = Enemy(player_group, enemy_group)
+        collision = pygame.sprite.spritecollide(player, enemy_group, False)
+        death = pygame.sprite.groupcollide(shot_group, enemy_group, True, True)
+        if collision:
             while True:
-                windo()
+                Window()
                 selec()
                 pygame.display.update()
-        jogadorGrupo.update()
+        player_group.update()
         pygame.display.update()
