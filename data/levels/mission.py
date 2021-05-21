@@ -3,7 +3,7 @@ from random import random
 from player import Player
 from shot import Shot
 from enemies import Enemy
-from data.secondary_menu import Window, selec
+from data.third_menu import windows, options
 
 
 def game():
@@ -18,6 +18,7 @@ def game():
     player = Player(player_group)
 
     timer = 0
+    tempo = 0
 
     while True:
         clock.tick(60)
@@ -40,8 +41,11 @@ def game():
         death = pygame.sprite.groupcollide(shot_group, enemy_group, True, True)
         if collision:
             while True:
-                Window()
-                selec()
+                windows()
+                options()
+                tempo += 1
                 pygame.display.update()
+                if tempo >= 1000:
+                    break
         player_group.update()
         pygame.display.update()
