@@ -1,9 +1,6 @@
 import pygame
-from data.menu import window, select
+from data.menu import Game
 
 pygame.display.set_caption('Space')
 
-while True:
-    window()
-    select()
-    pygame.display.update()
+Game()

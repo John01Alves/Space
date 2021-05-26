@@ -1,9 +1,6 @@
 import pygame
 from random import random
-from player import Player
-from shot import Shot
-from enemies import Enemy
-from data.third_menu import windows, options
+from data.images import Player, Shot, Meteor
 
 
 def game():
@@ -13,15 +10,21 @@ def game():
 
     player_group = pygame.sprite.Group()
     shot_group = pygame.sprite.Group()
-    enemy_group = pygame.sprite.Group()
+    meteor_group = pygame.sprite.Group()
+
+    bg = pygame.sprite.Sprite(player_group)
+    bg.image = pygame.image.load('utilitie/images/background0.png')
+    bg.image = pygame.transform.scale(bg.image, [840, 480])
+    bg.rect = bg.image.get_rect()
 
     player = Player(player_group)
 
+    pygame.mouse.set_visible(0)
+
     timer = 0
-    tempo = 0
 
     while True:
-        clock.tick(60)
+        clock.tick(90)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -30,22 +33,15 @@ def game():
                 if event.key == pygame.K_SPACE:
                     new_shot = Shot(player_group, shot_group)
                     new_shot.rect.center = player.rect.center
-        window.fill([0, 0, 0])
         player_group.draw(window)
         timer += 1
         if timer > 30:
             timer = 0
             if random() < 0.3:
-                new_enemy = Enemy(player_group, enemy_group)
-        collision = pygame.sprite.spritecollide(player, enemy_group, False)
-        death = pygame.sprite.groupcollide(shot_group, enemy_group, True, True)
+                new_enemy = Meteor(player_group, meteor_group)
+        collision = pygame.sprite.spritecollide(player, meteor_group, False)
+        death = pygame.sprite.groupcollide(shot_group, meteor_group, True, True)
         if collision:
-            while True:
-                windows()
-                options()
-                tempo += 1
-                pygame.display.update()
-                if tempo >= 1000:
-                    break
+            break
         player_group.update()
         pygame.display.update()
