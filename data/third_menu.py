@@ -11,7 +11,7 @@ def now():
 
     image = pygame.image.load('utilitie/images/background0.png')
 
-    pygame.mouse.set_visible(1)
+    pygame.mouse.set_visible(True)
 
     menu = 0
 
