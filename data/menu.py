@@ -13,6 +13,9 @@ def Game():
 
     image = pygame.image.load('utilitie/images/menu.png')
 
+    pygame.mixer.music.load('utilitie/music/electronic.wav')
+    pygame.mixer.music.play(-1)
+
     menu = [0, 1]
 
     while True:

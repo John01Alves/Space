@@ -23,6 +23,8 @@ def game():
     player = Player(player_group)
     placar = Placar()
 
+    shot_song = pygame.mixer.Sound('utilitie/music/laser.wav')
+
     pygame.mouse.set_visible(False)
 
     timer = recharge = 0
@@ -37,6 +39,7 @@ def game():
             if shot > 0:
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
+                        shot_song.play()
                         new_shot = Shot(player_group, shot_group)
                         new_shot.rect.center = player.rect.center
                         shot -= 1
